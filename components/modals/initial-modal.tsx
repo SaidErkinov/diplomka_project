@@ -41,7 +41,7 @@ const formSchema = z.object({
 export const InitialModal = () => {
   const [isMounted, setIsMounted] = useState(false)
 
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect (() => {
     setIsMounted(true);
@@ -57,7 +57,7 @@ export const InitialModal = () => {
 
   const isLoading = form.formState.isSubmitting;
 
-  const onSudmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post("/api/servers", values);
 
@@ -87,7 +87,7 @@ export const InitialModal = () => {
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSudmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
               <div className=" flex items-center justify-center text-center">
                 <FormField 
