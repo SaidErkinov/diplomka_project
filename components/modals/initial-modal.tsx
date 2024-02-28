@@ -4,7 +4,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Dialog,
@@ -45,7 +45,7 @@ export const InitialModal = () => {
 
   useEffect (() => {
     setIsMounted(true);
-  })
+  }, [])
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -66,7 +66,6 @@ export const InitialModal = () => {
       window.location.reload();
     } catch (error) {
       console.log(error);
-      
     };
   };
 
@@ -119,7 +118,7 @@ export const InitialModal = () => {
                       <Input
                         disabled={isLoading}
                         className=" bg-zinc-300/50 border 0 focus-visible: ring-0 text-black focus-visible: ring-offset-0"
-                        placeholder=" Enter server name"
+                        placeholder="Enter server name"
                         {...field}
                       />
                     </FormControl>
